@@ -27,7 +27,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '#featured', label: 'Featured' },
-    { href: '#new-releases', label: 'New Releases' },
+    { href: '#new-releases', label: 'New\u00A0Releases' },
     { href: '#collections', label: 'Collections' },
     { href: '#innovation', label: 'Innovation' }
   ];
@@ -84,7 +84,7 @@ const Navbar = () => {
               <motion.a 
                 key={link.href} 
                 href={link.href} 
-                className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
+                className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300 whitespace-nowrap"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ const Navbar = () => {
                   <a 
                     key={link.href} 
                     href={link.href} 
-                    className="font-bold text-xl text-center"
+                    className="font-bold text-xl text-center whitespace-nowrap"
                   >
                     {link.label}
                   </a>
