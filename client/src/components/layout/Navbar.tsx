@@ -71,14 +71,14 @@ const Navbar = () => {
 
       {/* Main navigation at the bottom */}
       <motion.nav 
-        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 rounded-full py-3 px-6 flex items-center justify-center transition-all duration-300 ${
-          scrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-black/40 backdrop-blur-sm'
+        className={`fixed bottom-8 inset-x-0 mx-auto w-max z-50 rounded-full py-4 px-10 flex items-center justify-center transition-all duration-300 ${
+          scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-black/60 backdrop-blur-sm'
         }`}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
       >
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-12">
           {navLinks.map((link, index) => (
             <motion.a 
               key={link.href} 

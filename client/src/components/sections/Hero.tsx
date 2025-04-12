@@ -7,8 +7,6 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const shapeRef = useRef<HTMLDivElement>(null);
-  const circleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // GSAP animation for the hero section
@@ -37,35 +35,11 @@ const Hero = () => {
         yoyo: true,
         ease: "power1.inOut"
       });
-      
-      // Animate the decorative shapes
-      if (shapeRef.current && circleRef.current) {
-        gsap.to(shapeRef.current, {
-          rotation: 360,
-          duration: 20,
-          repeat: -1,
-          ease: "none"
-        });
-        
-        gsap.to(circleRef.current, {
-          scale: 1.1,
-          duration: 2,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut"
-        });
-      }
     }
   }, []);
 
   return (
     <section ref={heroRef} className="relative h-screen overflow-hidden bg-gradient-to-br from-[#f8e9e9] to-[#e6f0f9]">
-      {/* Decorative elements */}
-      <div ref={shapeRef} className="absolute top-20 right-20 w-40 h-40 border border-[#ff8896] rounded-full opacity-30 z-0"></div>
-      <div ref={circleRef} className="absolute bottom-40 left-20 w-20 h-20 bg-[#8896ff] rounded-full opacity-20 z-0"></div>
-      <div className="absolute top-1/3 left-1/4 w-5 h-5 bg-[#ff8896] rounded-full opacity-40 z-0"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-8 h-8 border border-[#8896ff] rounded-full opacity-30 z-0"></div>
-      
       <div 
         className="absolute inset-0 flex items-center justify-center"
         onMouseEnter={() => setIsHovering(true)}
@@ -86,12 +60,13 @@ const Hero = () => {
         className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none"
       >
         <motion.h1 
-          className="text-7xl md:text-9xl font-sans font-extrabold tracking-tight"
+          className={`text-8xl md:text-[12rem] font-sans font-black tracking-tighter leading-none ${isHovering ? 'text-transition' : ''}`}
           style={{
             WebkitTextStroke: isHovering ? '2px black' : '0px',
             color: isHovering ? 'transparent' : 'black',
             transition: 'all 0.3s ease-in-out',
-            textShadow: isHovering ? '0 0 5px rgba(255,255,255,0.6)' : 'none'
+            textShadow: isHovering ? '0 0 10px rgba(255,255,255,0.4)' : 'none',
+            letterSpacing: '-0.05em'
           }}
         >
           JUST <span style={{
@@ -109,11 +84,11 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        <p className="text-black/70 text-xl text-center max-w-md">
+        <p className="text-black/80 text-xl font-medium text-center max-w-md">
           Experience innovation with every step. The new Air Jordan collection.
         </p>
         <motion.button
-          className="bg-black text-white px-8 py-3 rounded-full hover:bg-[#ff8896] transition-colors duration-300"
+          className="bg-black text-white px-10 py-4 rounded-full hover:bg-[#ff8896] transition-colors duration-300 font-bold"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
