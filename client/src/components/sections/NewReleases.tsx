@@ -106,7 +106,7 @@ const NewReleases = ({ products, isLoading }: NewReleasesProps) => {
             {isLoading ? (
               // Loading skeletons
               Array(placeholderCount).fill(0).map((_, index) => (
-                <div key={index} className="carousel-item flex-none w-full md:w-1/2 lg:w-1/3 px-4">
+                <div key={index} className="carousel-item flex-none w-[300px] px-4">
                   <div className="bg-gray-100 rounded-xl overflow-hidden">
                     <div className="pt-8 px-8 pb-4">
                       <Skeleton className="h-8 w-16 rounded-full" />
@@ -120,11 +120,11 @@ const NewReleases = ({ products, isLoading }: NewReleasesProps) => {
                 </div>
               ))
             ) : (
-              // Actual product cards
+              // Actual product cards in a single row
               products.map((product, index) => (
                 <motion.div 
                   key={product.id}
-                  className="carousel-item flex-none w-full md:w-1/2 lg:w-1/3 px-4 snap-start"
+                  className="carousel-item flex-none w-[300px] px-4 snap-start"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}

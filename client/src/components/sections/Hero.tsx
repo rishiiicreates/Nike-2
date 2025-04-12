@@ -45,7 +45,7 @@ const Hero = () => {
           <motion.div className="relative h-full flex items-center justify-center">
             <motion.img 
               ref={imageRef}
-              src="/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png" 
+              src="nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png" 
               alt="Nike Red Shoes" 
               className="h-[85vh] max-w-none object-contain cursor-pointer" 
               whileHover={{ scale: 1.05, rotate: -5 }}
