@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import NewNikeLogo from '@/assets/NewNikeLogo';
 import { Search, ShoppingBag, Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -33,27 +32,21 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed bottom-0 w-full z-50 px-6 md:px-8 py-3 flex items-center justify-between transition-all duration-300 ${
+      className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 px-6 md:px-8 py-3 flex items-center justify-between transition-all duration-300 rounded-full ${
         scrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-black/40 backdrop-blur-sm'
       }`}
     >
-      <div className="flex items-center">
-        <Link href="/" className="mr-8">
-          <NewNikeLogo className="w-12 h-12" />
-        </Link>
-        
-        <nav className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link.href} 
-              href={link.href} 
-              className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-      </div>
+      <nav className="hidden md:flex space-x-8">
+        {navLinks.map((link) => (
+          <a 
+            key={link.href} 
+            href={link.href} 
+            className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
 
       <div className="flex items-center space-x-6">
         <button className="text-white hover:text-[hsl(var(--pastel-blue))] transition duration-300">

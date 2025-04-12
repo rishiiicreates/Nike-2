@@ -54,8 +54,12 @@ const Hero = () => {
         ref={textRef}
         className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none"
       >
-        <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight text-black/60 backdrop-blur-sm bg-white/10 px-8 py-4 rounded-md">
-          JUST <span className="text-[#ff8896]">DO</span> IT
+        <h1 className="text-7xl md:text-9xl font-sans font-extrabold tracking-tight" style={{
+          WebkitTextStroke: '2px black',
+          color: 'transparent',
+          textShadow: '0 0 5px rgba(255,255,255,0.6)'
+        }}>
+          JUST <span style={{ WebkitTextStroke: '2px #ff8896' }}>DO</span> IT
         </h1>
       </motion.div>
     </section>
