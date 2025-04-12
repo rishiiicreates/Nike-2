@@ -81,17 +81,32 @@
     transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
   }
   
-  /* Text outline styles for when text overlaps image */
+  /* Text outline styles for hero text with improved stroke */
   .text-outline {
     color: transparent;
-    -webkit-text-stroke: 2px #000;
+    -webkit-text-stroke: 3px #000;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 1px rgba(0,0,0,0.1);
+    mix-blend-mode: overlay;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
   }
   
   .text-outline-pink {
     color: transparent;
-    -webkit-text-stroke: 2px #ff8896;
+    -webkit-text-stroke: 3px #ff8896;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 1px rgba(255,136,150,0.1);
+    mix-blend-mode: overlay;
+    filter: drop-shadow(0 0 2px rgba(255,136,150,0.1));
+  }
+  
+  /* Larger text outline for bigger headline text */
+  .text-outline-xl {
+    -webkit-text-stroke: 3.5px #000;
+  }
+  
+  .text-outline-pink-xl {
+    -webkit-text-stroke: 3.5px #ff8896;
   }
 
   * {
