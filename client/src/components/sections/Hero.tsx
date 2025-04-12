@@ -6,7 +6,6 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const textOutlineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // GSAP animation for the hero section
@@ -41,34 +40,21 @@ const Hero = () => {
   return (
     <section ref={heroRef} className="relative h-screen overflow-hidden bg-gradient-to-br from-[#f8e9e9] to-[#e6f0f9]">
       <div className="relative h-full w-full">
-        {/* Normal text that will be visible outside the image */}
+        {/* This is the outline text that shows everywhere EXCEPT over the image */}
         <motion.div 
           ref={textRef}
           className="absolute inset-0 flex items-center justify-end z-20 pr-10 md:pr-16 lg:pr-24"
         >
-          <h1 className="text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right">
-            JUST <span className="text-[#ff8896]">DO</span> IT
+          <h1 className="text-outline text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right">
+            JUST <span className="text-outline-pink">DO</span> IT
           </h1>
         </motion.div>
         
-        {/* The shoe image with mask for text interaction */}
+        {/* The shoe image with mask for filled text */}
         <div className="absolute inset-0 flex items-center z-10">
-          <motion.div
-            className="relative h-full w-full"
-          >
-            {/* The shoe image */}
-            <motion.img 
-              ref={imageRef}
-              src="/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png" 
-              alt="Nike Red Shoes" 
-              className="absolute h-[80vh] max-w-none object-contain cursor-pointer ml-0 md:ml-16 lg:ml-32" 
-              whileHover={{ scale: 1.05, rotate: -5 }}
-              transition={{ duration: 0.5 }}
-            />
-            
-            {/* Text outline overlay with clip-path using the image */}
+          <motion.div className="relative h-full w-full">
+            {/* This is the filled text that only shows where it overlaps with the image */}
             <div 
-              ref={textOutlineRef}
               className="absolute inset-0 flex items-center justify-end z-30 pr-10 md:pr-16 lg:pr-24"
               style={{ 
                 WebkitMaskImage: 'url(/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png)',
@@ -81,10 +67,20 @@ const Hero = () => {
                 maskRepeat: 'no-repeat'
               }}
             >
-              <h1 className="text-outline text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right">
-                JUST <span className="text-outline-pink">DO</span> IT
+              <h1 className="text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right text-black">
+                JUST <span className="text-[#ff8896]">DO</span> IT
               </h1>
             </div>
+            
+            {/* The shoe image */}
+            <motion.img 
+              ref={imageRef}
+              src="/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png" 
+              alt="Nike Red Shoes" 
+              className="absolute h-[80vh] max-w-none object-contain cursor-pointer ml-0 md:ml-16 lg:ml-32" 
+              whileHover={{ scale: 1.05, rotate: -5 }}
+              transition={{ duration: 0.5 }}
+            />
           </motion.div>
         </div>
       </div>
