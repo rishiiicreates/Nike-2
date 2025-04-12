@@ -48,12 +48,16 @@
     --ring: 212.7 26.8% 83.9%;
   }
 
-  /* Nike specific colors */
+  /* Nike specific colors with softer palette */
   :root {
-    --nike-red: 0 100% 50%;
+    --nike-red: 354 100% 69%;
     --nike-black: 0 0% 7%;
-    --nike-volt: 72 100% 50%;
-    --nike-gray: 0 0% 96%;
+    --nike-volt: 65 85% 75%;
+    --nike-gray: 210 20% 96%;
+    --pastel-pink: 350 100% 88%;
+    --pastel-blue: 210 100% 77%;
+    --pastel-mint: 165 58% 87%;
+    --pastel-lavender: 267 100% 87%;
   }
 
   * {

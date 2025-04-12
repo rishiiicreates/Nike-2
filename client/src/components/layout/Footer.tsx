@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import NikeLogo from '@/assets/NikeLogo';
+import NewNikeLogo from '@/assets/NewNikeLogo';
 import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 
 const Footer = () => {
@@ -124,10 +124,15 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="mt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center">
-            <NikeLogo className="w-10 h-10 mr-3" />
-            <span className="text-sm text-gray-400">
-              © {new Date().getFullYear()} Nike, Inc. All Rights Reserved
+          <div className="flex flex-col items-start">
+            <div className="flex items-center mb-2">
+              <NewNikeLogo className="w-10 h-10 mr-3" />
+              <span className="text-sm text-gray-400">
+                © {new Date().getFullYear()} Nike, Inc. All Rights Reserved
+              </span>
+            </div>
+            <span className="text-sm italic text-pink-400">
+              the result of rishiicreates high on caffeine
             </span>
           </div>
           <div className="flex space-x-8 mt-6 md:mt-0">

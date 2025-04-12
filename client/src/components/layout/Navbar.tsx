@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
-import NikeLogo from '@/assets/NikeLogo';
+import NewNikeLogo from '@/assets/NewNikeLogo';
 import { Search, ShoppingBag, Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -33,13 +33,13 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`fixed w-full z-50 px-6 md:px-8 py-4 flex items-center justify-between transition-all duration-300 ${
-        scrolled ? 'bg-black py-2' : 'bg-transparent py-4'
+      className={`fixed bottom-0 w-full z-50 px-6 md:px-8 py-3 flex items-center justify-between transition-all duration-300 ${
+        scrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-black/40 backdrop-blur-sm'
       }`}
     >
       <div className="flex items-center">
         <Link href="/" className="mr-8">
-          <NikeLogo className="w-12 h-12 text-white" />
+          <NewNikeLogo className="w-12 h-12" />
         </Link>
         
         <nav className="hidden md:flex space-x-8">
@@ -47,7 +47,7 @@ const Navbar = () => {
             <a 
               key={link.href} 
               href={link.href} 
-              className="font-bold text-lg text-white hover:text-[hsl(var(--nike-volt))] transition duration-300"
+              className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
             >
               {link.label}
             </a>
@@ -56,10 +56,10 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center space-x-6">
-        <button className="text-white">
+        <button className="text-white hover:text-[hsl(var(--pastel-blue))] transition duration-300">
           <Search className="h-6 w-6" />
         </button>
-        <button className="text-white">
+        <button className="text-white hover:text-[hsl(var(--pastel-blue))] transition duration-300">
           <ShoppingBag className="h-6 w-6" />
         </button>
 
@@ -70,7 +70,7 @@ const Navbar = () => {
               <Menu className="h-8 w-8" />
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="bg-black text-white">
+          <SheetContent side="right" className="bg-black/80 backdrop-blur-lg text-white">
             <nav className="mt-12 flex flex-col space-y-6">
               {navLinks.map((link) => (
                 <a 
