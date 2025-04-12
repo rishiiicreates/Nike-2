@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import NewNikeLogo from '@/assets/NewNikeLogo';
 import { Search, ShoppingBag, Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -32,43 +33,77 @@ const Navbar = () => {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 px-6 md:px-8 py-3 flex items-center justify-between transition-all duration-300 ${
-        scrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-black/40 backdrop-blur-sm'
-      }`}
-    >
-      <div className="flex items-center">
-        <Link href="/" className="mr-8">
-          <NewNikeLogo className="w-12 h-12" />
+    <>
+      {/* Logo in top left */}
+      <motion.div 
+        className="fixed top-6 left-6 z-50"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <Link href="/">
+          <NewNikeLogo className="w-16 h-16" />
         </Link>
-        
-        <nav className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a 
+      </motion.div>
+
+      {/* Search and cart in top right */}
+      <motion.div 
+        className="fixed top-6 right-6 z-50 flex items-center space-x-6"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <motion.button 
+          className="text-black hover:text-[hsl(var(--pastel-pink))] transition duration-300"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Search className="h-6 w-6" />
+        </motion.button>
+        <motion.button 
+          className="text-black hover:text-[hsl(var(--pastel-pink))] transition duration-300"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ShoppingBag className="h-6 w-6" />
+        </motion.button>
+      </motion.div>
+
+      {/* Main navigation at the bottom */}
+      <motion.nav 
+        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 rounded-full py-3 px-6 flex items-center justify-center transition-all duration-300 ${
+          scrolled ? 'bg-black/70 backdrop-blur-md' : 'bg-black/40 backdrop-blur-sm'
+        }`}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <div className="hidden md:flex space-x-8">
+          {navLinks.map((link, index) => (
+            <motion.a 
               key={link.href} 
               href={link.href} 
               className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
+              whileHover={{ scale: 1.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
             >
               {link.label}
-            </a>
+            </motion.a>
           ))}
-        </nav>
-      </div>
+        </div>
 
-      <div className="flex items-center space-x-6">
-        <button className="text-white hover:text-[hsl(var(--pastel-blue))] transition duration-300">
-          <Search className="h-6 w-6" />
-        </button>
-        <button className="text-white hover:text-[hsl(var(--pastel-blue))] transition duration-300">
-          <ShoppingBag className="h-6 w-6" />
-        </button>
-
-        {/* Mobile menu */}
+        {/* Mobile menu button */}
         <Sheet>
           <SheetTrigger asChild>
-            <button className="md:hidden text-white">
+            <motion.button 
+              className="md:hidden text-white"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Menu className="h-8 w-8" />
-            </button>
+            </motion.button>
           </SheetTrigger>
           <SheetContent side="right" className="bg-black/80 backdrop-blur-lg text-white">
             <nav className="mt-12 flex flex-col space-y-6">
@@ -84,8 +119,8 @@ const Navbar = () => {
             </nav>
           </SheetContent>
         </Sheet>
-      </div>
-    </header>
+      </motion.nav>
+    </>
   );
 };
 
