@@ -80,6 +80,21 @@
   .text-transition {
     transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
   }
+  
+  /* Hero text with image overlap effect */
+  .hero-text {
+    position: relative;
+    color: #000;
+    mix-blend-mode: difference;
+    -webkit-text-stroke: 2px #000;
+  }
+  
+  /* Style the "DO" part separately to make it pink */
+  .hero-text span {
+    color: #ff8896;
+    -webkit-text-stroke: 2px #ff8896;
+    mix-blend-mode: difference;
+  }
 
   * {
     @apply border-border;

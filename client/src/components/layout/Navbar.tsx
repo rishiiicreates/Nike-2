@@ -36,19 +36,19 @@ const Navbar = () => {
     <>
       {/* Logo in top left */}
       <motion.div 
-        className="fixed top-6 left-6 z-50"
+        className="fixed top-8 left-8 z-50"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <Link href="/">
-          <NewNikeLogo className="w-16 h-16" />
+          <NewNikeLogo className="w-14 h-14" />
         </Link>
       </motion.div>
 
       {/* Search and cart in top right */}
       <motion.div 
-        className="fixed top-6 right-6 z-50 flex items-center space-x-6"
+        className="fixed top-8 right-8 z-50 flex items-center space-x-6"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -69,57 +69,59 @@ const Navbar = () => {
         </motion.button>
       </motion.div>
 
-      {/* Main navigation at the bottom */}
-      <motion.nav 
-        className={`fixed bottom-8 inset-x-0 mx-auto w-max z-50 rounded-full py-4 px-10 flex items-center justify-center transition-all duration-300 ${
-          scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-black/60 backdrop-blur-sm'
-        }`}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <div className="hidden md:flex space-x-12">
-          {navLinks.map((link, index) => (
-            <motion.a 
-              key={link.href} 
-              href={link.href} 
-              className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
-              whileHover={{ scale: 1.1 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-            >
-              {link.label}
-            </motion.a>
-          ))}
-        </div>
+      {/* Main navigation at the bottom - perfectly centered */}
+      <div className="fixed bottom-8 left-0 right-0 flex justify-center items-center z-50">
+        <motion.nav 
+          className={`rounded-full py-4 px-12 flex items-center justify-center transition-all duration-300 ${
+            scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-black/60 backdrop-blur-sm'
+          }`}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <div className="hidden md:flex items-center">
+            {navLinks.map((link, index) => (
+              <motion.a 
+                key={link.href} 
+                href={link.href} 
+                className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300 px-6"
+                whileHover={{ scale: 1.1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+              >
+                {link.label}
+              </motion.a>
+            ))}
+          </div>
 
-        {/* Mobile menu button */}
-        <Sheet>
-          <SheetTrigger asChild>
-            <motion.button 
-              className="md:hidden text-white"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Menu className="h-8 w-8" />
-            </motion.button>
-          </SheetTrigger>
-          <SheetContent side="right" className="bg-black/80 backdrop-blur-lg text-white">
-            <nav className="mt-12 flex flex-col space-y-6">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.href} 
-                  href={link.href} 
-                  className="font-bold text-xl"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
-      </motion.nav>
+          {/* Mobile menu button */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <motion.button 
+                className="md:hidden text-white"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Menu className="h-8 w-8" />
+              </motion.button>
+            </SheetTrigger>
+            <SheetContent side="right" className="bg-black/80 backdrop-blur-lg text-white">
+              <nav className="mt-12 flex flex-col space-y-6">
+                {navLinks.map((link) => (
+                  <a 
+                    key={link.href} 
+                    href={link.href} 
+                    className="font-bold text-xl"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </motion.nav>
+      </div>
     </>
   );
 };

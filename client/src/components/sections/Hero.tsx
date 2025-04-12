@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 
 const Hero = () => {
-  const [isHovering, setIsHovering] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -40,42 +39,29 @@ const Hero = () => {
 
   return (
     <section ref={heroRef} className="relative h-screen overflow-hidden bg-gradient-to-br from-[#f8e9e9] to-[#e6f0f9]">
-      <div 
-        className="absolute inset-0 flex items-center justify-center"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
-        <motion.img 
-          ref={imageRef}
-          src="/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png" 
-          alt="Nike Red Shoes" 
-          className="w-auto h-[80vh] max-w-none object-contain z-10 cursor-pointer" 
-          whileHover={{ scale: 1.05, rotate: -5 }}
-          transition={{ duration: 0.5 }}
-        />
-      </div>
-      
-      <motion.div 
-        ref={textRef}
-        className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none"
-      >
-        <motion.h1 
-          className={`text-8xl md:text-[12rem] font-sans font-black tracking-tighter leading-none ${isHovering ? 'text-transition' : ''}`}
-          style={{
-            WebkitTextStroke: isHovering ? '2px black' : '0px',
-            color: isHovering ? 'transparent' : 'black',
-            transition: 'all 0.3s ease-in-out',
-            textShadow: isHovering ? '0 0 10px rgba(255,255,255,0.4)' : 'none',
-            letterSpacing: '-0.05em'
-          }}
+      <div className="relative h-full w-full">
+        {/* Large text on the right side */}
+        <motion.div 
+          ref={textRef}
+          className="absolute inset-0 flex items-center justify-end z-20 pr-10 md:pr-16 lg:pr-24"
         >
-          JUST <span style={{
-            WebkitTextStroke: isHovering ? '2px #ff8896' : '0px',
-            color: isHovering ? 'transparent' : '#ff8896',
-            transition: 'all 0.3s ease-in-out'
-          }}>DO</span> IT
-        </motion.h1>
-      </motion.div>
+          <h1 className="hero-text text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right">
+            JUST <span>DO</span> IT
+          </h1>
+        </motion.div>
+        
+        {/* Image positioned to overlap with text */}
+        <div className="absolute inset-0 flex items-center z-10">
+          <motion.img 
+            ref={imageRef}
+            src="/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png" 
+            alt="Nike Red Shoes" 
+            className="w-auto h-[80vh] max-w-none object-contain cursor-pointer ml-0 md:ml-16 lg:ml-32" 
+            whileHover={{ scale: 1.05, rotate: -5 }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
+      </div>
       
       {/* Additional elements */}
       <motion.div
