@@ -40,17 +40,7 @@ const Hero = () => {
   return (
     <section ref={heroRef} className="relative h-screen overflow-hidden bg-gradient-to-br from-[#f8e9e9] to-[#e6f0f9]">
       <div className="relative h-full w-full">
-        {/* Filled text that's visible everywhere */}
-        <motion.div 
-          ref={textRef}
-          className="absolute inset-0 flex items-center justify-end z-20 pr-10 md:pr-16 lg:pr-24 pointer-events-none"
-        >
-          <h1 className="text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right text-black">
-            JUST <span className="text-[#ff8896]">DO</span> IT
-          </h1>
-        </motion.div>
-        
-        {/* The shoe image centered */}
+        {/* The shoe image centered - placed first/bottom layer */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <motion.div className="relative h-full flex items-center justify-center">
             <motion.img 
@@ -65,24 +55,15 @@ const Hero = () => {
           </motion.div>
         </div>
         
-        {/* Outline text that only shows where it overlaps with the image */}
-        <div 
+        {/* Single text layer with filled text */}
+        <motion.div 
+          ref={textRef}
           className="absolute inset-0 flex items-center justify-end z-30 pr-10 md:pr-16 lg:pr-24 pointer-events-none"
-          style={{ 
-            WebkitMaskImage: 'url(/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png)',
-            WebkitMaskSize: '85vh',
-            WebkitMaskPosition: 'center',
-            WebkitMaskRepeat: 'no-repeat',
-            maskImage: 'url(/nike-free-shoe-air-jordan-sneakers-running-shoes-8bb8c41d77347c2b5f28012d38c6c566.png)',
-            maskSize: '85vh',
-            maskPosition: 'center',
-            maskRepeat: 'no-repeat'
-          }}
         >
-          <h1 className="text-outline text-outline-xl text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right">
-            JUST <span className="text-outline-pink text-outline-pink-xl">DO</span> IT
+          <h1 className="text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right text-black">
+            JUST <span className="text-[#ff8896]">DO</span> IT
           </h1>
-        </div>
+        </motion.div>
       </div>
       
       {/* Additional elements */}
