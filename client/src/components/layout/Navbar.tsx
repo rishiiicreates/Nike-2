@@ -79,12 +79,12 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="hidden md:flex items-center justify-between w-full px-8 mx-auto">
+          <div className="hidden md:flex items-center justify-center space-x-8 w-full px-8 mx-auto">
             {navLinks.map((link, index) => (
               <motion.a 
                 key={link.href} 
                 href={link.href} 
-                className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300 px-4"
+                className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

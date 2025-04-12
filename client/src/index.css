@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Text outline effect */
+.text-outline {
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
+  color: transparent;
+}
+
+.text-outline-pink {
+  -webkit-text-stroke: 2px #ff8896;
+  text-stroke: 2px #ff8896;
+  color: transparent;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

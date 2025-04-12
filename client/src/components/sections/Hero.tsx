@@ -55,13 +55,26 @@ const Hero = () => {
           </motion.div>
         </div>
         
-        {/* Single text layer with filled text */}
+        {/* Text with outline effect */}
         <motion.div 
           ref={textRef}
           className="absolute inset-0 flex items-center justify-end z-30 pr-10 md:pr-16 lg:pr-24 pointer-events-none"
         >
-          <h1 className="text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right text-black">
+          {/* First layer - shadow */}
+          <h1 className="absolute text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right text-black opacity-10" style={{ transform: 'translate(5px, 5px)' }}>
             JUST <span className="text-[#ff8896]">DO</span> IT
+          </h1>
+          
+          {/* Second layer - outline */}
+          <h1 className="absolute text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right">
+            <span className="text-outline text-outline-xl">JUST</span>{" "}
+            <span className="text-outline-pink text-outline-pink-xl">DO</span>{" "}
+            <span className="text-outline text-outline-xl">IT</span>
+          </h1>
+          
+          {/* Third layer - main text */}
+          <h1 className="text-8xl md:text-[10rem] xl:text-[12rem] font-sans font-black tracking-tighter leading-none text-right">
+            <span className="text-black/70">JUST</span> <span className="text-[#ff8896]/70">DO</span> <span className="text-black/70">IT</span>
           </h1>
         </motion.div>
       </div>
