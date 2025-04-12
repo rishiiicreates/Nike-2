@@ -69,22 +69,23 @@ const Navbar = () => {
         </motion.button>
       </motion.div>
 
-      {/* Main navigation at the bottom - perfectly centered */}
+      {/* Main navigation at the bottom - fixed width for symmetry */}
       <div className="fixed bottom-8 left-0 right-0 flex justify-center items-center z-50">
         <motion.nav 
-          className={`rounded-full py-4 px-12 flex items-center justify-center transition-all duration-300 ${
+          className={`rounded-full py-4 flex items-center justify-center transition-all duration-300 ${
             scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-black/60 backdrop-blur-sm'
           }`}
+          style={{ width: '600px' }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center justify-between w-full px-8">
             {navLinks.map((link, index) => (
               <motion.a 
                 key={link.href} 
                 href={link.href} 
-                className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300 px-6"
+                className="font-bold text-lg text-white hover:text-[hsl(var(--pastel-pink))] transition duration-300"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

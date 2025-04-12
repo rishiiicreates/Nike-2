@@ -81,19 +81,17 @@
     transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
   }
   
-  /* Hero text with image overlap effect */
-  .hero-text {
-    position: relative;
-    color: #000;
-    mix-blend-mode: difference;
+  /* Text outline styles for when text overlaps image */
+  .text-outline {
+    color: transparent;
     -webkit-text-stroke: 2px #000;
+    -webkit-text-fill-color: transparent;
   }
   
-  /* Style the "DO" part separately to make it pink */
-  .hero-text span {
-    color: #ff8896;
+  .text-outline-pink {
+    color: transparent;
     -webkit-text-stroke: 2px #ff8896;
-    mix-blend-mode: difference;
+    -webkit-text-fill-color: transparent;
   }
 
   * {
